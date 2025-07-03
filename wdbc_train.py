@@ -59,12 +59,12 @@ def run_all_tests():
     for n in [4, 8, 16, 32]:
         model = ClusteringModel(n)
         model.fit(X)
-        print(f"[Q{[4,8,16,32].index(n)+1}] Silhouette ({n} clusters):", model.silhouette_score(X))
+        print(f"[T{[4,8,16,32].index(n)+1}] Silhouette ({n} clusters):", model.silhouette_score(X))
 
     X_noisy = X + np.random.normal(0, 0.2, size=X.shape)
     model = ClusteringModel(16)
     model.fit(X_noisy)
-    print("[Q6] Silhouette with noise:", model.silhouette_score(X_noisy))
+    print("[T6] Silhouette with noise:", model.silhouette_score(X_noisy))
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, 0.2, 42)
 
